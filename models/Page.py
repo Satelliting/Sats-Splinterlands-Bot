@@ -236,6 +236,8 @@ class Page:
                 return False
 
             try:
+                print(datetime.now().strftime(
+                    "%m/%d/%Y, %H:%M:%S") + ' Status: Battling')
                 self.page.click('#btnRumble')
                 self.page.click('#btnSkip')
             except Exception as e:

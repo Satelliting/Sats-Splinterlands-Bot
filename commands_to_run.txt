@@ -1,3 +1,0 @@
-(Only needed if you are upgraded or new install)
-1. pipenv install --ignore-profile
-2. pipenv run python main.py

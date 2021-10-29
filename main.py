@@ -111,7 +111,6 @@ def main():
                   ' Battles Played: ' + str(BATTLES_PLAYED))
             print(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") +
                   ' Battles Won: ' + str(BATTLES_WON))
-            raise ValueError('idk')
         except Exception as e:
             print(e)
             print('\n\n' + datetime.now().strftime("%m/%d/%Y, %H:%M:%S") +

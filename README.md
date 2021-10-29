@@ -4,6 +4,7 @@ A Splinterlands Bot built in Python utilizing playwright.
 
 - [How To Install](#how-to-install)
 - [How To Run](#how-to-run)
+- [How To Update](#how-to-update)
 - [F.A.Q.](#f.a.q.)
 - [Premium Accounts](#premium-accounts)
 - [Discord](https://discord.gg/v2f9e4DssU)
@@ -14,13 +15,19 @@ A Splinterlands Bot built in Python utilizing playwright.
 2. Download files
 3. Convert `.env-example` to `.env`
 4. Type `pip install pipenv` into Command Line Prompt (cmd)
+5. Navigate your Command Line Prompt (cmd) to the folder where the bot
+6. Type `pipenv shell` to step into Virtual Environment
+7. Type `playwright install chromium` to download the necessary browser
 
 ## How To Run
 
 1. Open Command Line Prompt (cmd) in folder (or navigate to folder)
-2. Type `pipenv install --ignore-profile` to install all dependencies (only needed to be done once after updates or install)
-3. Type `pipenv run python main.py`
-   These two will be in the `commands_to_run.txt` for easy access.
+2. Type `pipenv run python main.py`
+
+## How To Update
+
+1. Open Command Line Prompt (cmd) in folder (or navigate to folder)
+2. Type `pipenv install --ignore-pipfile` to install all dependencies (only needed to be done once after updates or install)
 
 ## F.A.Q.
 
@@ -32,6 +39,8 @@ A Splinterlands Bot built in Python utilizing playwright.
   - No. The bot is free to use. People who upgrade to premium will get access to private files via [Discord](https://discord.gg/v2f9e4DssU)
 - The bot is throwing errors, but is still running. Is that normal?
   - The current bot is our first couple editions. There may be kinks we need to sort out, so please send us screenshots and any details you can and we will work to remedy them. Feel free to report Issues to GitHub or on our [Discord](https://discord.gg/v2f9e4DssU).
+- What the hell is a Battlebase?
+  - It's my fun name for the battle decks database.
 
 ## Premium Accounts
 
