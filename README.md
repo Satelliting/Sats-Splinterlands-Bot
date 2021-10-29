@@ -10,7 +10,7 @@ A Splinterlands Bot built in Python utilizing playwright.
 
 ## How To Install
 
-1. Download Python (3.9.x) NOT 3.10+
+1. Download [Python (3.9.x)](https://www.python.org/downloads/release/python-397/) NOT 3.10+
 2. Download files
 3. Convert `.env-example` to `.env`
 4. Type `pip install pipenv` into Command Line Prompt (cmd)
