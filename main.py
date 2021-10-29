@@ -77,7 +77,18 @@ def main():
                 ecr_wait = page.calculate_ecr_wait(ECR_MIN, ECR_MAX)
                 # Step 3.2: If have to wait, close browser and user data
                 if ecr_wait > 0:
+                    browser.close()
                     sleep(ecr_wait)
+                    browser = play.chromium.launch(
+                        headless=HEADLESS,
+                        args=['--no-sandbox',
+                              '--disable-setuid-sandbox',
+                              '--single-process',
+                              '--hide-scrollbars',
+                              '--mute-audio',
+                              '--disable-web-security'
+                              ]
+                    )
                     page = Page(BASE_URL, HEADLESS)
                     continue
                 # Step 3.2.1: If no wait, initiate battle

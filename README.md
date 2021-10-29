@@ -38,6 +38,8 @@ A Splinterlands Bot built in Python utilizing playwright. Join us on our [Discor
 
 - How many decks does this come with?
   - At launch, the Battlebase will have over 65,000 possibilities of decks that it searches through. Premium members will be able to access the ever-expanding database that is updated nightly. Some bots will claim to have more, but the Battlebase is all UNIQUE deck combinations, not unique battles _cough_ _cough_.
+- Can this bot handle the infamous _Dragon_ splinter?
+  - Yes! It handles it perfectly. It knows how to handle it based on which splinters are available as well, not just picking dragon and then clicking buttons. It is actually pretty smart, this bot is.
 - Why doesn't the bot prioritize my quest?
   - Currently, the bot only can complete quests that deal with splinters. Neutral, Snipe, and Sneak quests are not accounted for at the moment.
 - Do I need to have my account _premium_ to use the bot?
