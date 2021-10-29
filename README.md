@@ -1,3 +1,5 @@
+![Sat's Splinterlands Bot](https://raw.githubusercontent.com/Satelliting/Sats-Splinterlands-Bot/main/logo.png)
+
 # Sat's Splinterlands Bot
 
 A Splinterlands Bot built in Python utilizing playwright.
