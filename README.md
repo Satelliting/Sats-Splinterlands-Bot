@@ -1,4 +1,6 @@
-![Sat's Splinterlands Bot](https://raw.githubusercontent.com/Satelliting/Sats-Splinterlands-Bot/main/logo.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Satelliting/Sats-Splinterlands-Bot/main/logo.png" alt="Sat's Splinterlands Bot" />
+</p>
 
 # Sat's Splinterlands Bot
 
@@ -69,5 +71,7 @@ This is a personal pet project my friend, `Fyedoe#1337`, told me to try to make 
 - AXS: `0x89eff2a56dBD2D80e42F80AB481d961a21480114`
 - XRP: `rH1csCD3yypLE7NdhPJT8wtEXWHeJwBUen`
 
-This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
-![Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
+<p align="center">
+  This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<br /><br />
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" alt="Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License" /></a>
+</p>
