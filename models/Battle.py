@@ -48,10 +48,10 @@ class Battle:
                 print(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") +
                       ' Status: Cannot Prioritize Quest')
                 battle_splinters = self.splinters
+                db_decks = list(filter(filter_deck, self.battlebase))
             else:
                 battle_splinters = [self.user.quest['type']]
 
-            db_decks = list(filter(filter_deck, self.battlebase))
             print(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") +
                   ' Mana/Rule Set/Splinter Matching Decks: ' + str(len(db_decks)))
 

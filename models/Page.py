@@ -185,7 +185,7 @@ class Page:
                 while True:
                     try:
                         self.page.click(
-                            '//div[@card_detail_id="' + str(summoner_id) + '"]', timeout=300)
+                            'div[card_detail_id="' + str(summoner_id) + '"]', timeout=300)
                         break
                     except:
                         summoner_id += 1
@@ -199,13 +199,13 @@ class Page:
                 while True:
                     try:
                         self.page.click(
-                            '//div[@card_detail_id="' + str(monster_id) + '"]', timeout=300)
+                            'div[card_detail_id="' + str(monster_id) + '"]', timeout=300)
                         break
                     except:
                         monster_id += 1
                 return True
 
-            self.page.click('//div[@card_detail_id="' +
+            self.page.click('div[card_detail_id="' +
                             str(deck['summoner']['id']) + '"]')
 
             if deck['summoner']['splinter'] == 'Dragon':
@@ -215,7 +215,7 @@ class Page:
 
             for card in deck['monsters']:
                 self.page.click(
-                    '//div[@card_detail_id="' + str(card['id']) + '"]')
+                    'div[card_detail_id="' + str(card['id']) + '"]')
                 sleep(0.5)
             return True
         except Exception as e:
