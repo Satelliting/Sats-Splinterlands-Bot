@@ -85,7 +85,7 @@ class Page:
 
             wait_amount = 0.0
             while ecr_max > ecr_amount:
-                ecr_max -= .0019
+                ecr_max -= .001
                 wait_amount += 1
 
             if wait_amount != 0.0:

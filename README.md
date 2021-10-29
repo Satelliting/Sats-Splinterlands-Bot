@@ -20,8 +20,9 @@ A Splinterlands Bot built in Python utilizing playwright. Join us on our [Discor
 3. Convert `.env-example` to `.env`
 4. Type `pip install pipenv` into Command Line Prompt (cmd)
 5. Navigate your Command Line Prompt (cmd) to the folder where the bot
-6. Type `pipenv shell` to step into Virtual Environment
-7. Type `playwright install chromium` to download the necessary browser
+6. Type `pipenv install` to install all dependencies
+7. Type `pipenv shell` to step into Virtual Environment
+8. Type `playwright install chromium` to download the necessary browser
 
 ## How To Run
 
