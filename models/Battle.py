@@ -37,7 +37,7 @@ class Battle:
 
             if self.user.quest != None and self.user.quest['completed_total'] < self.user.quest['quest_total'] and self.user.request_quest:
                 # Not Currently Supported Quests
-                if self.user.quest['type'] not in ['Sneak', 'Snipe', 'Neutral'] and self.request_quest:
+                if self.user.quest['type'] not in ['Sneak', 'Snipe', 'Neutral']:
                     print(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") +
                           ' Status: Prioritizing Quest')
                     battle_splinters = [self.user.quest['type']]
