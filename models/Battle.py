@@ -97,9 +97,16 @@ class Battle:
                         if deck['team']['monsters'][0]['splinter'] not in battle_splinters:
                             continue
                     if deck['md']['mana'] > chosen_deck_mana:
-                        chosen_deck = deck['team']
-                        chosen_deck_occurrence = deck['md']['amount']
-                        chosen_deck_mana = deck['md']['mana']
+                        # Checks if battle deck with one less mana has more wins
+                        if deck['md']['mana'] == chosen_deck_mana + 1:
+                            if deck['md']['amount'] > chosen_deck_occurrence:
+                                chosen_deck = deck['team']
+                                chosen_deck_occurrence = deck['md']['amount']
+                                chosen_deck_mana = deck['md']['mana']
+                        else:
+                            chosen_deck = deck['team']
+                            chosen_deck_occurrence = deck['md']['amount']
+                            chosen_deck_mana = deck['md']['mana']
                     elif deck['md']['mana'] == chosen_deck_mana:
                         if deck['md']['amount'] > chosen_deck_occurrence:
                             chosen_deck = deck['team']
