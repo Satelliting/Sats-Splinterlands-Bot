@@ -1,0 +1,4 @@
+.vscode/
+tools/
+.env
+entire_collection.json
