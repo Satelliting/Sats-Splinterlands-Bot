@@ -4,14 +4,14 @@
 
 # Sat's Splinterlands Bot
 
-A Splinterlands Bot built in Python utilizing playwright.
+A Splinterlands Bot built in Python utilizing playwright. Join us on our [Discord](https://discord.gg/9SYtVSzu9z) to get the latest update, news and support from other players.
 
 - [How To Install](#how-to-install)
 - [How To Run](#how-to-run)
 - [How To Update](#how-to-update)
 - [F.A.Q.](#f.a.q.)
 - [Premium Accounts](#premium-accounts)
-- [Discord](https://discord.gg/v2f9e4DssU)
+- [Discord](https://discord.gg/9SYtVSzu9z)
 
 ## How To Install
 
@@ -40,9 +40,9 @@ A Splinterlands Bot built in Python utilizing playwright.
 - Why doesn't the bot prioritize my quest?
   - Currently, the bot only can complete quests that deal with splinters. Neutral, Snipe, and Sneak quests are not accounted for at the moment.
 - Do I need to have my account _premium_ to use the bot?
-  - No. The bot is free to use. People who upgrade to premium will get access to private files via [Discord](https://discord.gg/v2f9e4DssU)
+  - No. The bot is free to use. People who upgrade to premium will get access to private files via [Discord](https://discord.gg/9SYtVSzu9z)
 - The bot is throwing errors, but is still running. Is that normal?
-  - The current bot is our first couple editions. There may be kinks we need to sort out, so please send us screenshots and any details you can and we will work to remedy them. Feel free to report Issues to GitHub or on our [Discord](https://discord.gg/v2f9e4DssU).
+  - The current bot is our first couple editions. There may be kinks we need to sort out, so please send us screenshots and any details you can and we will work to remedy them. Feel free to report Issues to GitHub or on our [Discord](https://discord.gg/9SYtVSzu9z).
 - What the hell is a Battlebase?
   - It's my fun name for the battle decks database.
 
@@ -50,19 +50,19 @@ A Splinterlands Bot built in Python utilizing playwright.
 
 Premium accounts get the following benefits:
 
-1. Access to Premium support on [Discord](https://discord.gg/v2f9e4DssU)
+1. Access to Premium support on [Discord](https://discord.gg/9SYtVSzu9z)
 2. Access to the ever-expanding online Battlebase which is updated and expanded nightly
    - (roughly 10,000 battles processed every night)
 3. Multi-Account Automation (coming soon)
 
-To turn your account into a Premium account, please reach out to `Satelliting#9231` on [Discord](https://discord.gg/v2f9e4DssU).
-Premium accounts price details can be found by visiting the [Discord](https://discord.gg/v2f9e4DssU).
+To turn your account into a Premium account, please reach out to `Satelliting#9231` on [Discord](https://discord.gg/9SYtVSzu9z).
+Premium accounts price details can be found by visiting the [Discord](https://discord.gg/9SYtVSzu9z).
 
 _Accounts is in reference to your Splinterlands accounts._
 
 ## Donations
 
-This is a personal pet project my friend, `Fyedoe#1337`, told me to try to make and here we go. This is arguably one of the best Splinterlands bots on the market, and we are just getting started. If you wish to donate as a way of saying thanks, please use the following addresses below.
+This is a personal pet project my friend, `Fyedoe#1337`, suggested I try to make and here we go. This is arguably one of the best Splinterlands bots on the market, and we are just getting started. If you wish to donate as a way of saying thanks, please use the following addresses below.
 
 - DEC: player `satelliting`
 - BTC: `3Moq6DcBbkKttnoSipcKsSdsQEPVNSemPK`
