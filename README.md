@@ -29,21 +29,21 @@ A Splinterlands Bot built in Python utilizing playwright.
 - Why doesn't the bot prioritize my quest?
   - Currently, the bot only can complete quests that deal with splinters. Neutral, Snipe, and Sneak quests are not accounted for at the moment.
 - Do I need to have my account _premium_ to use the bot?
-  - No. The bot is free to use. People who upgrade to premium will get access to private files via Discord
+  - No. The bot is free to use. People who upgrade to premium will get access to private files via [Discord](https://discord.gg/v2f9e4DssU)
 - The bot is throwing errors, but is still running. Is that normal?
-  - The current bot is our first couple editions. There may be kinks we need to sort out, so please send us screenshots and any details you can and we will work to remedy them. Feel free to report Issues to GitHub or on our Discord.
+  - The current bot is our first couple editions. There may be kinks we need to sort out, so please send us screenshots and any details you can and we will work to remedy them. Feel free to report Issues to GitHub or on our [Discord](https://discord.gg/v2f9e4DssU).
 
 ## Premium Accounts
 
 Premium accounts get the following benefits:
 
-1. Access to Premium support on Discord
+1. Access to Premium support on [Discord](https://discord.gg/v2f9e4DssU)
 2. Access to the ever-expanding online Battlebase which is updated and expanded nightly
    - (roughly 10,000 battles processed every night)
 3. Multi-Account Automation (coming soon)
 
-To turn your account into a Premium account, please reach out to `Satelliting#9231` on Discord.
-Premium accounts are priced at $5/month with discounts depending on the amount of accounts you wish to upgrade.
+To turn your account into a Premium account, please reach out to `Satelliting#9231` on [Discord](https://discord.gg/v2f9e4DssU).
+Premium accounts price details can be found by visiting the [Discord](https://discord.gg/v2f9e4DssU).
 
 _Accounts is in reference to your Splinterlands accounts._
 
@@ -57,3 +57,6 @@ This is a personal pet project my friend, `Fyedoe#1337`, told me to try to make 
 - ETH: `0xC08200E2A1F586c4AFb80ae5B5E8E9CE7Ef593eB`
 - AXS: `0x89eff2a56dBD2D80e42F80AB481d961a21480114`
 - XRP: `rH1csCD3yypLE7NdhPJT8wtEXWHeJwBUen`
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+![Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
