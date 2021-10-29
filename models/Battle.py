@@ -48,6 +48,8 @@ class Battle:
                 print(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") +
                       ' Status: Cannot Prioritize Quest')
                 battle_splinters = self.splinters
+            else:
+                battle_splinters = [self.user.quest['type']]
 
             db_decks = list(filter(filter_deck, self.battlebase))
             print(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") +
@@ -90,6 +92,10 @@ class Battle:
 
             if len(possible_decks) > 0:
                 for deck in possible_decks:
+                    # Check if Dragon deck sub-splinter is available
+                    if deck['team']['summoner']['splinter'] == 'Dragon':
+                        if deck['team']['monsters'][0]['splinter'] not in battle_splinters:
+                            continue
                     if deck['md']['mana'] > chosen_deck_mana:
                         chosen_deck = deck['team']
                         chosen_deck_occurrence = deck['md']['amount']
