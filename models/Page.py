@@ -268,12 +268,13 @@ class Page:
     def claim_reward(self, reward_type):
         try:
             self.page.goto(self.base_url + '/?p=battle_history')
+            self.close_modal()
             if reward_type == 'season':
-                self.click('button#claim-btn')
+                self.click('button#claim-btn', timeout=10000)
                 print('Status Season Reward Claimed')
                 return True
             elif reward_type == 'quest':
-                self.click('button#quest_claim_btn')
+                self.click('button#quest_claim_btn', timeout=10000)
                 print('Status Quest Reward Claimed')
                 return True
             else:

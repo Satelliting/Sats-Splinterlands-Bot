@@ -32,8 +32,8 @@ BASE_URL = 'https://splinterlands.com'
 CARDS_DETAILS = json.loads(requests.get(
     'https://api.splinterlands.io/cards/get_details').content)
 PRIORITIZE_QUEST = os.getenv('PRIORITIZE_QUEST').lower() == 'true'
-CLAIM_REWARD_QUEST = os.getenv('PRIORITIZE_QUEST').lower() == 'true'
-CLAIM_REWARD_SEASON = os.getenv('PRIORITIZE_QUEST').lower() == 'true'
+CLAIM_REWARD_QUEST = os.getenv('CLAIM_REWARD_QUEST').lower() == 'true'
+CLAIM_REWARD_SEASON = os.getenv('CLAIM_REWARD_SEASON').lower() == 'true'
 
 # Checks if console arguments passed (override .env)
 if len(sys.argv) > 4:
@@ -56,6 +56,7 @@ def main():
               ]
     )
     page = Page(browser, BASE_URL)
+
     BATTLES_PLAYED = 0
     BATTLES_WON = 0
 

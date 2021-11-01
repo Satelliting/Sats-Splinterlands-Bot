@@ -1,6 +1,6 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Satelliting/Sats-Splinterlands-Bot/main/logo.png" alt="Sat's Splinterlands Bot" />
-</p>
+<!-- <p align="center">
+  <img src="https://raw.githubusercontent.com/Satelliting/Sats-Splinterlands-Bot/main/website/logo.png" alt="Sat's Splinterlands Bot" />
+</p> -->
 
 # Sat's Splinterlands Bot
 
@@ -14,6 +14,8 @@ A Splinterlands Bot built in Python utilizing playwright. Join us on our [Discor
 - [Discord](https://discord.gg/9SYtVSzu9z)
 
 ## How To Install
+
+When downloading Python, ensure you enable Python to be added to PATH and you install for all users.
 
 1. Download [Python (3.9.x)](https://www.python.org/downloads/release/python-397/) NOT 3.10+
 2. Download files

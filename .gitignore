@@ -1,4 +1,5 @@
 .vscode/
 tools/
+website/
 .env
 entire_collection.json
