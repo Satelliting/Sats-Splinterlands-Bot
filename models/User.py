@@ -34,7 +34,7 @@ class User:
 
         try:
             player_cards_data = requests.get(
-                'https://game-api.splinterlands.io/cards/collection/' + self.username.lower()
+                'https://api.splinterlands.io/cards/collection/' + self.username.lower()
             )
             player_cards = player_cards_data.json()['cards']
 
@@ -76,7 +76,7 @@ class User:
 
         try:
             player_quest_data = requests.get(
-                'https://game-api.splinterlands.io/players/quests?username=' + self.username.lower()
+                'https://api.splinterlands.io/players/quests?username=' + self.username.lower()
             )
             player_quest = player_quest_data.json()[0]
             return {
