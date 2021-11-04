@@ -3,5 +3,6 @@ __pycache__/
 build/
 dist/
 old/
+node_modules/
 .env
 entire_collection.json
