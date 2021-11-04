@@ -1,5 +1,7 @@
 .vscode/
-tools/
-website/
+__pycache__/
+build/
+dist/
+old/
 .env
 entire_collection.json

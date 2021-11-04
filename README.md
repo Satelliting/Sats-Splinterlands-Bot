@@ -13,6 +13,10 @@ A Splinterlands Bot built in Python utilizing playwright. Join us on our [Discor
 - [Premium Accounts](#premium-accounts)
 - [Discord](https://discord.gg/9SYtVSzu9z)
 
+## UPDATE
+
+Now, if you wish to not go through all the funky install below, simply go to [Releases](https://github.com/Satelliting/Sats-Splinterlands-Bot/releases) and download the version corresponding to your OS. As of now, only Windows and Linux Ubuntu OS are fully supported for .ZIP installation. You will still need to edit the `.env` file.
+
 ## How To Install
 
 When downloading Python, ensure you enable Python to be added to PATH and you install for all users.
@@ -20,11 +24,12 @@ When downloading Python, ensure you enable Python to be added to PATH and you in
 1. Download [Python (3.9.x)](https://www.python.org/downloads/release/python-397/) NOT 3.10+
 2. Download files
 3. Convert `.env-example` to `.env`
-4. Type `pip install pipenv` into Command Line Prompt (cmd)
-5. Navigate your Command Line Prompt (cmd) to the folder where the bot
-6. Type `pipenv install` to install all dependencies
-7. Type `pipenv shell` to step into Virtual Environment
-8. Type `playwright install chromium` to download the necessary browser
+4. Make the changes within the `.env` to your liking. Include username, email, password. Email/Pass can be swapped for Username/Posting Key (just utilize the same variables).
+5. Type `pip install pipenv` into Command Line Prompt (cmd)
+6. Navigate your Command Line Prompt (cmd) to the folder where the bot
+7. Type `pipenv install` to install all dependencies
+8. Type `pipenv shell` to step into Virtual Environment
+9. Type `playwright install chromium` to download the necessary browser
 
 ## How To Run
 

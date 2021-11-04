@@ -1,6 +1,7 @@
 from datetime import datetime
+from time import sleep
 
-import json
+import requests
 
 
 class Battle:
@@ -51,7 +52,7 @@ class Battle:
               ' Mana/Rule Set/Splinter Matching Decks: ' + str(len(db_decks)))
 
         possible_decks = []
-        for count, battle in enumerate(db_decks):
+        for battle in db_decks:
             viable = False
 
             player_summoner = [card for card in self.user.cards if card.get(
@@ -123,3 +124,23 @@ class Battle:
                       self.cards_details[chosen_deck['monsters'][order]['id'] - 1]['name'] + ' (' + str(chosen_deck['monsters'][order]['id']) + ')')
 
         return chosen_deck
+
+    def check_winner(self):
+        """Checks who the winner of the match was.
+
+        Returns:
+            String: Username of winner.
+        """
+        print(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") +
+              ' Status: Checking Winner')
+        sleep(3)
+
+        player_battle_data = requests.get(
+            'https://api2.splinterlands.com/battle/history?player=' + self.user.username.lower()
+        )
+        player_battle = player_battle_data.json()['battles'][0]
+        winner = player_battle['winner']
+
+        print(datetime.now().strftime(
+            "%m/%d/%Y, %H:%M:%S") + ' Winner: ' + winner)
+        return winner

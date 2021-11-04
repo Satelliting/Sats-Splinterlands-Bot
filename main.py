@@ -1,6 +1,6 @@
-from models.User import User
-from models.Battle import Battle
-from models.Page import Page
+from User import User
+from Battle import Battle
+from Page import Page
 
 from dotenv import load_dotenv
 from time import sleep
@@ -17,7 +17,7 @@ import requests
 load_dotenv(override=True)
 
 # gets global user details
-USERNAME = os.getenv('USERNAME')
+USERNAME = os.getenv('USERNAME').lower()
 EMAIL = os.getenv('EMAIL')
 PASSWORD = os.getenv('PASSWORD')
 
@@ -71,12 +71,13 @@ def main():
     browser_life = datetime.now()
     browser_status = True
     browser_life_allowed = 20  # minutes
+
     while True:
         try:
             # Step 1: Setup Player
             player = User(USERNAME, EMAIL, PASSWORD, PRIORITIZE_QUEST)
             # Step 2: Checks if player is logged in; if not, logs them in
-            if page.check_login_status():
+            if page.is_logged_in():
                 # Step 2.1: Attempts to login player
                 if page.login(player) == None:
                     # If None returned, bad email/pass combo
@@ -84,7 +85,7 @@ def main():
                           ' Email/Password combination is incorrect.')
                     break
             # Step 3: Check if player is already in battle
-            if page.battle_status():
+            if not page.is_mid_battle():
                 # Step 3.1: Calculate how long we should wait for ECR to reset
                 ecr_wait = page.calculate_ecr_wait(ECR_MIN, ECR_MAX)
                 # Step 3.2: If have to wait, close browser and user data
@@ -106,8 +107,6 @@ def main():
                 # Step 3.2.1: If no wait, initiate battle
                 else:
                     page.initiate_battle()
-            else:
-                ecr_wait = 0
             # Step 4: Enter the card selection screen
             page.enter_card_selection()
             # Step 4.1 Create battle instance with battle details
@@ -120,12 +119,12 @@ def main():
             # Step 7: Start the battle on the page
             page.start_battle()
             # Step 8: Check who won the battle
-            winner = page.check_winner()
+            winner = battle.check_winner()
             if winner == USERNAME:
                 BATTLES_WON += 1
             BATTLES_PLAYED += 1
             # Step 9: Attempts to claim rewards
-            if CLAIM_REWARD_QUEST and player.quest['claimed'] == None:
+            if CLAIM_REWARD_QUEST and player.quest['claimed'] == None and player.quest['quest_total'] == player.quest['completed_total']:
                 page.claim_reward('quest')
             if CLAIM_REWARD_SEASON:
                 page.claim_reward('season')
@@ -138,13 +137,15 @@ def main():
             print(e)
             print('\n\n' + datetime.now().strftime("%m/%d/%Y, %H:%M:%S") +
                   ' Status: Error Occurred During Battle Process')
+            del page
             browser.close()
             browser_status = False
         # Step 10: Sleep for set interval
         print(datetime.now().strftime("%m/%d/%Y, %H:%M:%S") +
               ' Resting: ' + str(BATTLE_INTERVAL) + ' Seconds')
-        # Step 10.1: Closer browser if older than browser_life_allowed  minutes or was closed
+        # Step 10.1: Close browser if older than browser_life_allowed  minutes or was closed
         if browser_life < datetime.now() - timedelta(minutes=browser_life_allowed) and browser_status != False:
+            del page
             browser.close()
             browser_status = False
         sleep(BATTLE_INTERVAL)
