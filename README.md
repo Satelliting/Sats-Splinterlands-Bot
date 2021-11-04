@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/Satelliting/Sats-Splinterlands-Bot/main/website/logo.png" alt="Sat's Splinterlands Bot" />
 </p> -->
 
-# Sat's Splinterlands Bot
+# [Sat's Splinterlands Bot](https://satelliting.github.io/Sats-Splinterlands-Bot/)
 
 A Splinterlands Bot built in Python utilizing playwright. Join us on our [Discord](https://discord.gg/9SYtVSzu9z) to get the latest update, news and support from other players.
 
