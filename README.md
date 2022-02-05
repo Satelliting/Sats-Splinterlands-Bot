@@ -15,31 +15,37 @@ A Splinterlands Bot built in Python utilizing playwright. Join us on our [Discor
 
 ## UPDATE
 
-Now, if you wish to not go through all the funky install below, simply go to [Releases](https://github.com/Satelliting/Sats-Splinterlands-Bot/releases) and download the version corresponding to your OS. As of now, only Windows and Linux Ubuntu OS are fully supported for .ZIP installation. You will still need to edit the `.env` file.
+We are no longer supporting anything other than a repo install. No bundled applications.
 
 ## How To Install
 
 When downloading Python, ensure you enable Python to be added to PATH and you install for all users.
 
-1. Download [Python (3.9.x)](https://www.python.org/downloads/release/python-397/) NOT 3.10+
-2. Download files
+1. Download [Python (3+)](https://www.python.org/downloads/) NOT 2.+
+2. Clone repository to your computer - To clone, install Git (or download zip)
 3. Convert `.env-example` to `.env`
 4. Make the changes within the `.env` to your liking. Include username, email, password. Email/Pass can be swapped for Username/Posting Key (just utilize the same variables).
-5. Type `pip install pipenv` into Command Line Prompt (cmd)
-6. Navigate your Command Line Prompt (cmd) to the folder where the bot
-7. Type `pipenv install` to install all dependencies
-8. Type `pipenv shell` to step into Virtual Environment
-9. Type `playwright install chromium` to download the necessary browser
+5. Type `pip install python-dotenv, rich, playwright` inside terminal to install all necessary packages.
+6. Type `playwright install chromium` to install necessary browsers.
 
 ## How To Run
 
 1. Open Command Line Prompt (cmd) in folder (or navigate to folder)
-2. Type `pipenv run python main.py`
+2. Type `python main.py`
 
 ## How To Update
 
-1. Open Command Line Prompt (cmd) in folder (or navigate to folder)
-2. Type `pipenv install --ignore-pipfile` to install all dependencies (only needed to be done once after updates or install)
+(Recommended)
+
+1. Pull latest branch utilizing Git
+2. Ensure no new packages are necessary to install
+
+(Manual)
+
+1. Download latest commit zip
+2. Delete all files from previous EXCEPT .env
+3. Unzip into previous directory
+4. Ensure no new packages are necessary to install
 
 ## F.A.Q.
 
@@ -50,13 +56,15 @@ When downloading Python, ensure you enable Python to be added to PATH and you in
 - Why doesn't the bot prioritize my quest?
   - Currently, the bot only can complete quests that deal with splinters. Neutral, Snipe, and Sneak quests are not accounted for at the moment.
 - Do I need to have my account _premium_ to use the bot?
-  - No. The bot is free to use. People who upgrade to premium will get access to private files via [Discord](https://discord.gg/9SYtVSzu9z)
+  - No. The bot is free to use. People who upgrade to premium will get access to private database via [Discord](https://discord.gg/9SYtVSzu9z)
 - The bot is throwing errors, but is still running. Is that normal?
   - The current bot is our first couple editions. There may be kinks we need to sort out, so please send us screenshots and any details you can and we will work to remedy them. Feel free to report Issues to GitHub or on our [Discord](https://discord.gg/9SYtVSzu9z).
 - What the hell is a Battlebase?
   - It's my fun name for the battle decks database.
 
 ## Premium Accounts
+
+PREMIUM IS CURRENTLY NOT OFFERED.
 
 Premium accounts get the following benefits:
 
