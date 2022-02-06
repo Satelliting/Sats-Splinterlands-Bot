@@ -114,13 +114,6 @@ class Page:
             ecr_max -= 0.01
             wait_amount += 1
 
-        if wait_amount != 0.0:
-            print(
-                datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
-                + " Status: Waiting "
-                + str(wait_amount)
-                + " Hours ECR To Reach Minimum"
-            )
         return wait_amount * 60 * 60
 
     def is_mid_battle(self):

@@ -229,6 +229,7 @@ def main():
             console.log("Battles Won: " + str(player.battles_won))
             sleep(uniform(1, 2))
         except Exception:
+            console.print_exception()
             console.log("[bold red]Error Occurred During Battle Process")
             del page
             BROWSER["browser"].close()

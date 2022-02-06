@@ -21,6 +21,7 @@ class Battle:
             "Earth",
             "Light",
             "Death",
+            "Dragon",
         ]
 
     def get_deck(self, prioritize_quest):
@@ -142,6 +143,7 @@ class Battle:
             "Earth :leaves:",
             "Light :light_bulb:",
             "Death :skull:",
+            "Dragon :dragon:",
         ]
 
         emoji_splinter_match = [
@@ -153,7 +155,7 @@ class Battle:
         if chosen_deck != None:
             self.console.log(
                 "[bold yellow]Chosen Deck: "
-                + emoji_splinter_match[0]
+                + (emoji_splinter_match[0] or chosen_deck["summoner"]["splinter"])
                 + " ("
                 + str(chosen_deck_mana)
                 + ")"

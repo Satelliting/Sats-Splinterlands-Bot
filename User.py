@@ -172,7 +172,7 @@ class User:
                 p_cards.append(base_card_data)
             return p_cards
         except Exception:
-            self.console.print_exception(show_locals=True)
+            self.console.print_exception()
             return base_cards
 
     def get_quest(self):
