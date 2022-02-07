@@ -34,7 +34,7 @@ class Page:
         except:
             pass
 
-    def is_logged_in(self):
+    def is_logged_in(self, username):
         """Checks if user is currently logged in.
 
         Returns:
@@ -44,9 +44,8 @@ class Page:
         self.page.wait_for_load_state()
 
         try:
-
             self.page.wait_for_selector(".bio__avatar", state="visible", timeout=5000)
-            return True
+            return username == self.page.inner_text(".bio__name__display").lower()
         except:
             return False
 
