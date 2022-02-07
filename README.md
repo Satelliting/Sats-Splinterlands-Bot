@@ -25,7 +25,7 @@ When downloading Python, ensure you enable Python to be added to PATH and you in
 2. Clone repository to your computer - To clone, install Git (or download zip)
 3. Convert `.env-example` to `.env`
 4. Make the changes within the `.env` to your liking. Include username, email, password. Email/Pass can be swapped for Username/Posting Key (just utilize the same variables).
-5. Type `pip install python-dotenv, rich, playwright` inside terminal to install all necessary packages.
+5. Type `pip install python-dotenv, rich, playwright, requests` inside terminal to install all necessary packages.
 6. Type `playwright install chromium` to install necessary browsers.
 
 ## How To Run
