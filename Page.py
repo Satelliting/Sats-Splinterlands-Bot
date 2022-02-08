@@ -176,7 +176,7 @@ class Page:
 
             return {"mana": mana, "rule_set": rule_set, "splinters": splinter_options}
         except:
-            self.console.print_exception()
+            self.console.print_exception(show_locals=True)
             sys.exit()
 
     def click_cards(self, deck=None):

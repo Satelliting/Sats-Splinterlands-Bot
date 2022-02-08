@@ -240,7 +240,7 @@ def main():
                 console.log("Battles Won: " + str(player.battles_won))
                 sleep(uniform(1, 2))
             except Exception:
-                console.print_exception()
+                console.print_exception(show_locals=True)
                 console.log("[bold red]Error Occurred During Battle Process")
                 del page
                 BROWSER["browser"].close()
@@ -276,7 +276,7 @@ def main():
         with console.status("[bold status]Shutdown requested...") as status:
             sleep(3)
     except:
-        console.print_exception()
+        console.print_exception(show_locals=True)
     sys.exit(0)
 
 
