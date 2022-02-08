@@ -120,7 +120,7 @@ def main():
 
                 if not player_login_status:
                     console.log("[bold white]Currently logged out")
-                    page.page.evaluate("() => SM.Logout();")
+                    page.logout_account()
 
                     # Step 2.1: Attempts to login player
                     with console.status(

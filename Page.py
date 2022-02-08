@@ -34,6 +34,12 @@ class Page:
         except:
             pass
 
+    def logout_account(self):
+        try:
+            self.page.evaluate("() => SM.Logout();")
+        except:
+            pass
+
     def is_logged_in(self, username):
         """Checks if user is currently logged in.
 
