@@ -50,14 +50,14 @@ class Battle:
         ):
             # Not Currently Supported Quests
             if self.player.quest["type"] not in ["Sneak", "Snipe", "Neutral"]:
-                self.console.log("[bold yellow]Prioritizing Quest Deck")
+                self.console.log("[bold red]Prioritizing Quest Deck")
                 sleep(randint(1, 2))
                 battle_splinters = [self.player.quest["type"]]
 
         db_decks = list(filter(filter_deck, self.battlebase))
 
         if len(db_decks) == 0:
-            self.console.log("[bold yellow]Cannot prioritize quest")
+            self.console.log("[bold red]Cannot prioritize quest")
             sleep(randint(1, 2))
             battle_splinters = self.splinters
             db_decks = list(filter(filter_deck, self.battlebase))
@@ -65,7 +65,8 @@ class Battle:
             battle_splinters = [self.player.quest["type"]]
 
         self.console.log(
-            "[bold yellow]Mana/Rule Set/Splinter Matching Decks: " + str(len(db_decks))
+            "[bold white]Mana/Rule Set/Splinter Matching Decks: [bold yellow]"
+            + str(len(db_decks))
         )
         sleep(1)
 
@@ -105,7 +106,9 @@ class Battle:
             if viable:
                 possible_decks.append(battle)
 
-        self.console.log("[bold yellow]Card Matching Decks: " + str(len(db_decks)))
+        self.console.log(
+            "[bold white]Card Matching Decks: [bold yellow]" + str(len(db_decks))
+        )
         sleep(1)
 
         chosen_deck = None
@@ -154,36 +157,36 @@ class Battle:
 
         if chosen_deck != None:
             self.console.log(
-                "[bold yellow]Chosen Deck: "
+                "[bold white]Chosen Deck: [bold yellow3]"
                 + (emoji_splinter_match[0] or chosen_deck["summoner"]["splinter"])
-                + " ("
+                + " [bold white]([bold cyan]"
                 + str(chosen_deck_mana)
-                + ")"
+                + "[bold white])"
             )
             sleep(1)
             self.console.log(
-                "[bold yellow]Deck Win Count: " + str(chosen_deck_occurrence)
+                "[bold white]Deck Win Count: [bold green]" + str(chosen_deck_occurrence)
             )
             sleep(1)
             self.console.log(
-                "[bold yellow]Summoner: "
+                "[bold white]Summoner: [bold yellow3]"
                 + self.cards_details[chosen_deck["summoner"]["id"] - 1]["name"]
-                + " ("
+                + " [bold white]([bold hot_pink]"
                 + str(chosen_deck["summoner"]["id"])
-                + ")"
+                + "[bold white])"
             )
             sleep(1)
             for order, monster in enumerate(chosen_deck["monsters"]):
                 self.console.log(
-                    "[bold yellow]Monster #"
+                    "[bold white]Monster #"
                     + str(order + 1)
-                    + ": "
+                    + ": [bold yellow3]"
                     + self.cards_details[chosen_deck["monsters"][order]["id"] - 1][
                         "name"
                     ]
-                    + " ("
+                    + " [bold white]([bold hot_pink]"
                     + str(chosen_deck["monsters"][order]["id"])
-                    + ")"
+                    + "[bold white])"
                 )
                 sleep(1)
 
@@ -196,7 +199,7 @@ class Battle:
             String: Username of winner.
         """
 
-        with self.console.status("[bold white]Checking Winner...") as status:
+        with self.console.status("[bold blue]Checking Winner...") as status:
             sleep(randint(1, 3))
 
             player_battle_data = requests.get(

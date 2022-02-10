@@ -13,13 +13,13 @@ class Page:
         self.browser = browser_details["browser"]
         self.base_url = browser_details["base_url"]
 
-        console.log("[bold magenta]Browser Launched")
+        console.log("[bold white]Browser Status: [bold green]Browser Launched")
         self.page = self.browser.new_page()
         self.page.goto(self.base_url)
         self.page.wait_for_load_state()
 
     def __del__(self):
-        self.console.log("[bold magenta]Browser Closed")
+        self.console.log("[bold white]Browser Status: [bold red]Browser Closed")
 
     def close_modal(self):
         """Attempts to close any modals open."""
@@ -70,25 +70,25 @@ class Page:
         self.page.wait_for_load_state()
 
         # clicks login button to open modal
-        self.console.log("[bold magenta]Opening login modal")
-        self.page.click("#log_in_button > button")
-        sleep(randint(2, 4))
+        with self.console.status("[bold blue]Opening login modal") as status:
+            self.page.click("#log_in_button > button")
+            sleep(randint(2, 4))
 
         # wait for modal to finish loading
         self.page.wait_for_selector("input#email", timeout=10000)
         sleep(randint(2, 4))  # utilized to wait for animation to finish
 
         # enter login details
-        self.console.log("[bold magenta]Entering credentials")
-        self.page.focus("input#email")
-        self.page.type("input#email", user.email, delay=randint(35, 80))
-        self.page.focus("input#password")
-        self.page.type("input#password", user.password, delay=randint(40, 90))
+        with self.console.status("[bold blue]Entering credentials") as status:
+            self.page.focus("input#email")
+            self.page.type("input#email", user.email, delay=randint(35, 80))
+            self.page.focus("input#password")
+            self.page.type("input#password", user.password, delay=randint(40, 90))
 
         # click login button
-        self.console.log("[bold magenta]Clicking login button")
-        self.page.click("#login_dialog_v2 .btn-primary >> nth=1")
-        sleep(randint(3, 5))
+        with self.console.log("[bold blue]Clicking login button") as status:
+            self.page.click("#login_dialog_v2 .btn-primary >> nth=1")
+            sleep(randint(3, 5))
 
         # ensures correct email/password combination
         check = ""
@@ -109,7 +109,9 @@ class Page:
         )
         ecr_amount = float(ecr_amount_percent.strip("%")) / 100
 
-        self.console.log("[bold magenta]Current ECR: " + str(ecr_amount_percent))
+        self.console.log(
+            "[bold white]Current ECR: [bold magenta]" + str(ecr_amount_percent)
+        )
 
         if ecr_amount >= ecr_min:
             return 0
@@ -139,9 +141,14 @@ class Page:
         """Initiate Battle."""
 
         try:
-            self.page.click("#battle_category_btn", timeout=5000)
-            sleep(randint(2, 4))
-            self.page.click(".btn--create-team", timeout=250000)
+            self.page.click("#battle_category_btn", timeout=3000)
+        except:
+            pass
+
+        sleep(uniform(3, 4))
+
+        try:
+            self.page.click("button.btn--create-team", timeout=250000)
             return True
         except:
             return False
@@ -167,11 +174,15 @@ class Page:
                 if s_p[1].strip() == "Active":
                     splinter_options.append(s_p[0])
 
-            self.console.log("[bold yellow]Battle Mana: " + str(mana))
+            self.console.log("[bold white]Battle Mana: [bold yellow]" + str(mana))
             sleep(1)
-            self.console.log("[bold yellow]Battle Rule Set: " + str(rule_set))
+            self.console.log(
+                "[bold white]Battle Rule Set: [bold yellow]" + str(rule_set)
+            )
             sleep(1)
-            self.console.log("[bold yellow]Battle Splinters: " + str(splinter_options))
+            self.console.log(
+                "[bold white]Battle Splinters: [bold yellow]" + str(splinter_options)
+            )
             sleep(1)
 
             return {"mana": mana, "rule_set": rule_set, "splinters": splinter_options}
@@ -180,13 +191,13 @@ class Page:
             sys.exit()
 
     def click_cards(self, deck=None):
-        with self.console.status("[bold white]Clicking Cards", spinner="arc") as status:
+        with self.console.status("[bold blue]Clicking Cards", spinner="arc") as status:
             sleep(randint(2, 3))
 
             # If no viable deck was found
             if deck == None:
                 self.console.log(
-                    "[bold orange3]No Deck Found, Clicking First Summoner, First Monster"
+                    "[bold red]No Deck Found, Clicking First Summoner, First Monster"
                 )
                 # first summoner select
                 summoner_id = 0
@@ -244,7 +255,7 @@ class Page:
             bool: True if battle was fought.
         """
 
-        with self.console.status("[bold yellow]Waiting For Opponent") as status:
+        with self.console.status("[bold blue]Waiting For Opponent") as status:
             sleep(randint(2, 3))
             self.page.click(".btn-green")
 

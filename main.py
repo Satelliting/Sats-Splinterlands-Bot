@@ -33,25 +33,35 @@ load_dotenv(override=True)
 
 # load card details
 CARDS_DETAILS = []
-with console.status(
-    "[bold white]Obtaining all card information...", spinner="toggle10"
-) as status:
-    sleep(randint(2, 4))
-    CARDS_DETAILS = json.loads(
-        requests.get("https://api.splinterlands.io/cards/get_details").content
-    )
-console.log("[bold green]Card information loaded in")
+try:
+    with console.status(
+        "[bold blue]Obtaining all card information...", spinner="toggle10"
+    ) as status:
+        sleep(randint(2, 4))
+        CARDS_DETAILS = json.loads(
+            requests.get("https://api.splinterlands.io/cards/get_details").content
+        )
+    console.log("[bold white]Data Status: [bold green]Card information loaded")
+except:
+    console.print_exception()
+    console.log("[bold white]Data Status: [bold red]Card information unable to loaded")
+    sys.exit()
 sleep(randint(2, 4))
 
 # load battlebase (previously logged battles database)
 BATTLEBASE = []
-with console.status(
-    "[bold white]Booting up the battlebase connection...", spinner="betaWave"
-) as status:
-    sleep(randint(2, 4))
-    with open("collection.json") as f:
-        BATTLEBASE = json.load(f)
-console.log("[bold green]Battlebase loaded")
+try:
+    with console.status(
+        "[bold blue]Booting up the battlebase connection...", spinner="betaWave"
+    ) as status:
+        sleep(randint(2, 4))
+        with open("collection.json") as f:
+            BATTLEBASE = json.load(f)
+    console.log("[bold white]Battlebase Status: [bold green]Battlebase loaded")
+except:
+    console.print_exception()
+    console.log("[bold white]Battlebase Status: [bold red]Battlebase unable to load")
+    sys.exit()
 sleep(randint(2, 4))
 
 # gets global user details
@@ -113,21 +123,20 @@ def main():
             try:
                 # Step 2: Checks if player is logged in; if not, logs them in
                 with console.status(
-                    "[bold white]Checking if player is logged in"
+                    "[bold blue]Checking if player is logged in"
                 ) as status:
                     player_login_status = page.is_logged_in(player.username)
                     sleep(randint(1, 3))
 
                 if not player_login_status:
-                    console.log("[bold white]Currently logged out")
+                    console.log(
+                        "[bold white]Login Status: [bold red]Currently logged out"
+                    )
                     page.logout_account()
 
                     # Step 2.1: Attempts to login player
-                    with console.status(
-                        "[bold blue]Attempting to login", spinner="arrow3"
-                    ) as status:
-                        player_login = page.login(player)
-                        sleep(1)
+                    player_login = page.login(player)
+                    sleep(1)
 
                     if player_login == None:
                         console.log("[bold red]Login attempt failed :x:")
@@ -135,22 +144,19 @@ def main():
                         break
                     else:
                         console.log(
-                            "[bold green]Login attempt successful :white_check_mark:"
+                            "[bold white] Login Status: [bold green]Login attempt successful :white_check_mark:"
                         )
                 else:
-                    console.log("[bold white]Currently logged in")
+                    console.log(
+                        "[bold white]Login Status: [bold yellow]Currently logged in"
+                    )
                 sleep(1)
-
-                for _ in range(2):
-                    page.close_modal()
 
                 # Step 3: Check if player is already in battle
                 if not page.is_mid_battle():
                     # Step 3.1: Calculate how long we should wait for ECR to reset
                     ecr_wait = 0
-                    with console.status(
-                        "[bold white]Calculating Current ECR"
-                    ) as status:
+                    with console.status("[bold blue]Calculating Current ECR") as status:
                         ecr_wait = page.calculate_ecr_wait(
                             BATTLE["ecr_min"], BATTLE["ecr_max"]
                         )
@@ -160,7 +166,7 @@ def main():
                         BROWSER["browser"].close()
 
                         with console.status(
-                            "[bold white]Waiting "
+                            "[bold blue]Waiting "
                             + str((ecr_wait / 60) / 60)
                             + " Hours",
                             spinner="pong",
@@ -180,20 +186,18 @@ def main():
 
                 # Step 4: Initiate battle
                 with console.status(
-                    "[bold white]Initiating battle", spinner="shark"
+                    "[bold blue]Initiating battle", spinner="shark"
                 ) as status:
                     battle_initiation = page.initiate_battle()
 
                 if not battle_initiation:
-                    console.log(
-                        "[bold red] Something occurred during battle initiation"
-                    )
+                    console.log("[bold red]Something occurred during battle initiation")
                     break
 
                 sleep(randint(1, 3))
 
                 # Step 5 Create battle instance with battle details
-                with console.status("[bold white]Getting battle details") as status:
+                with console.status("[bold blue]Getting battle details") as status:
                     battle_details = page.get_battle_details()
                     sleep(1)
 
@@ -203,10 +207,9 @@ def main():
 
                 # Step 6: Choose deck from battle deck logs
                 with console.status(
-                    "[bold white]Picking deck", spinner="growVertical"
+                    "[bold blue]Picking deck", spinner="growVertical"
                 ) as status:
                     deck = battle.get_deck(BATTLE["prioritize_quest"])
-                console.log("[bold green]Deck selected")
                 sleep(uniform(1, 2))
 
                 # Step 7: Click cards on the page
@@ -219,11 +222,18 @@ def main():
                 winner = battle.check_winner()
 
                 if winner == USER["username"]:
-                    console.log("[bold green]Winner: " + winner)
+                    player.battle_streak += 1
+                    console.log("[bold white]Winner: [bold green]" + winner)
                     player.battles_won += 1
+                elif winner == "DRAW":
+                    console.log("[bold white]Winner: [bold yellow]" + winner)
+                    player.battles_drawn += 1
                 else:
-                    console.log("[bold red]Winner: " + winner)
+                    player.battle_streak = 0
+                    player.battles_lost += 1
+                    console.log("[bold white]Winner: [bold red]" + winner)
                 player.battles_played += 1
+                sleep(uniform(1, 2))
 
                 # Step 9: Attempts to claim rewards
                 # if (
@@ -235,18 +245,39 @@ def main():
                 # if CLAIM_REWARD_SEASON:
                 # page.claim_reward("season")
 
-                console.log("Battles Played: " + str(player.battles_played))
-                sleep(uniform(1, 2))
-                console.log("Battles Won: " + str(player.battles_won))
+                console.log(
+                    "[bold white]Battle Stats: [bold green]"
+                    + str(player.battles_won)
+                    + "[white]/[bold yellow]"
+                    + str(player.battles_drawn)
+                    + "[white]/[bold red]"
+                    + str(player.battles_lost)
+                    + " [white]([bold blue]"
+                    + str(player.battles_played)
+                    + "[white])"
+                )
+                if player.battle_streak > 1:
+                    sleep(uniform(1, 2))
+                    console.log(
+                        "[bold white]Battle Win Streak: [bold green]"
+                        + str(player.battle_streak)
+                    )
                 sleep(uniform(1, 2))
             except Exception:
                 console.print_exception(show_locals=True)
-                console.log("[bold red]Error Occurred During Battle Process")
+                console.log(
+                    "[bold white]Browser Status: [bold red]Error Occurred During Battle Process"
+                )
                 del page
                 BROWSER["browser"].close()
                 browser_status = False
             # Step 10: Sleep for set interval
-            console.log("Resting: " + str(BATTLE["battle_interval"]) + " Seconds")
+            console.log(
+                "[bold white]Rest Period: [bold hot_pink]"
+                + str(BATTLE["battle_interval"])
+                + " [bold white]Seconds"
+            )
+            print()
 
             # Step 10.1: Close browser if older than browser_life_allowed minutes or was closed
             if (
@@ -273,11 +304,11 @@ def main():
                 page = Page(console, BROWSER)
                 sleep(uniform(1, 2))
     except KeyboardInterrupt:
-        with console.status("[bold status]Shutdown requested...") as status:
-            sleep(3)
+        console.log("[bold red]Shutdown requested...")
+        sleep(3)
     except:
         console.print_exception(show_locals=True)
-    sys.exit(0)
+    sys.exit()
 
 
 if __name__ == "__main__":

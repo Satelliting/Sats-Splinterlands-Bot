@@ -18,20 +18,24 @@ class User:
 
         self.battles_played = 0
         self.battles_won = 0
+        self.battles_drawn = 0
+        self.battles_lost = 0
         self.battle_streak = 0
 
-        self.console.log("[bold blue]Current Player: " + self.username)
-        sleep(1)
-        self.console.log("[bold blue]Player's Deck Size: " + str(len(self.cards)))
+        self.console.log("[bold white]Current Player: [bold blue]" + self.username)
         sleep(1)
         self.console.log(
-            "[bold blue]Player's Quest: "
+            "[bold white]Player's Deck Size: [bold blue]" + str(len(self.cards))
+        )
+        sleep(1)
+        self.console.log(
+            "[bold white]Player's Quest: [bold blue]"
             + str(self.quest["type"])
-            + " ("
+            + " [bold white]([bold green]"
             + str(self.quest["completed_total"])
-            + "/"
+            + "[bold white]/[bold yellow]"
             + str(self.quest["quest_total"])
-            + ")"
+            + "[bold white])"
         )
 
     def get_cards(self):
