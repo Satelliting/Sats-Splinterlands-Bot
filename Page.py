@@ -86,9 +86,8 @@ class Page:
             self.page.type("input#password", user.password, delay=randint(40, 90))
 
         # click login button
-        with self.console.log("[bold blue]Clicking login button") as status:
-            self.page.click("#login_dialog_v2 .btn-primary >> nth=1")
-            sleep(randint(3, 5))
+        self.page.click("#login_dialog_v2 .btn-primary >> nth=1")
+        sleep(uniform(1, 3))
 
         # ensures correct email/password combination
         check = ""

@@ -173,8 +173,8 @@ def main():
                         ) as status:
                             sleep(ecr_wait)
 
-                        p_browser = play.chromium.launch(
-                            headless=BROWSER["headless"], args=BROWSER["args"]
+                        p_browser = play.chromium.launch_persistent_context(
+                            "./", headless=BROWSER["headless"], args=BROWSER["args"]
                         )
                         BROWSER["browser"] = p_browser
                         page = Page(console, BROWSER)
@@ -293,8 +293,8 @@ def main():
 
             # Step 10.2: Open browser if old one was closed
             if browser_status == False:
-                p_browser = play.chromium.launch(
-                    headless=BROWSER["headless"], args=BROWSER["args"]
+                p_browser = play.chromium.launch_persistent_context(
+                    "./", headless=BROWSER["headless"], args=BROWSER["args"]
                 )
                 browser_status = True
 
